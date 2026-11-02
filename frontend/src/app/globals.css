@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-base: 'Noto Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  
+  /* Government of India & AICTE Color Palette */
+  --color-gov-navy: #0B1F3A;
+  --color-aicte-blue: #1B365D;
+  --color-aicte-indigo: #24145C;
+  --color-aicte-saffron: #D97706;
+  --color-aicte-saffron-dark: #B45309;
+  
+  /* Canvas & Neutral Surfaces (Clean Light Mode) */
+  --canvas-bg: #F8FAFC;
+  --card-bg: #FFFFFF;
+  --border-light: #E2E8F0;
+  --text-main: #0F172A;
+  --text-muted: #475569;
+}
+
+/* Font Scale Accessibility */
+html.font-scale-normal {
+  font-size: 15px;
+}
+html.font-scale-large {
+  font-size: 16.5px;
+}
+html.font-scale-larger {
+  font-size: 18px;
+}
+
+body {
+  font-family: var(--font-base);
+  color: var(--text-main);
+  background-color: var(--canvas-bg);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* JetBrains Mono font class */
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* High Contrast Mode (GIGW Accessibility) */
+body.high-contrast {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+}
+body.high-contrast .bg-white,
+body.high-contrast .bg-slate-50,
+body.high-contrast .bg-slate-100 {
+  background-color: #0F172A !important;
+  color: #FFFFFF !important;
+  border-color: #FACC15 !important;
+}
+body.high-contrast .text-slate-900,
+body.high-contrast .text-slate-800,
+body.high-contrast .text-slate-700 {
+  color: #FFFFFF !important;
+}
+body.high-contrast .text-slate-600,
+body.high-contrast .text-slate-500 {
+  color: #E2E8F0 !important;
+}
+body.high-contrast button {
+  border-color: #FACC15 !important;
+}
+
+/* UX4G 3.0 Semantic Status Badges */
+.ux4g-badge-success {
+  color: #128937;
+  background-color: #F2FCEF;
+  border: 1px solid #80DA88;
+}
+
+.ux4g-badge-warning {
+  color: #D46B08;
+  background-color: #FFF7E6;
+  border: 1px solid #FFD899;
+}
+
+.ux4g-badge-danger {
+  color: #B3251E;
+  background-color: #FFF8F8;
+  border: 1px solid #FFB3AE;
+}
+
+.ux4g-badge-info {
+  color: #1E3A8A;
+  background-color: #EFF6FF;
+  border: 1px solid #93C5FD;
+}
+
+.ux4g-badge-neutral {
+  color: #475569;
+  background-color: #F1F5F9;
+  border: 1px solid #CBD5E1;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Pulsing Bounding Box Animations */
+@keyframes pulseBBoxRed {
+  0%, 100% {
+    stroke-width: 3.5;
+    stroke: #ef4444;
+    filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.9));
+  }
+  50% {
+    stroke-width: 2;
+    stroke: #b91c1c;
+    filter: drop-shadow(0 0 3px rgba(239, 68, 68, 0.4));
+  }
+}
+
+@keyframes pulseBBoxGreen {
+  0%, 100% {
+    stroke-width: 2.5;
+    stroke: #10b981;
+    filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.8));
+  }
+  50% {
+    stroke-width: 1.5;
+    stroke: #059669;
+    filter: drop-shadow(0 0 2px rgba(16, 185, 129, 0.3));
+  }
+}
+
+.svg-bbox-fail {
+  animation: pulseBBoxRed 1.8s infinite ease-in-out;
+}
+
+.svg-bbox-ok {
+  animation: pulseBBoxGreen 2.2s infinite ease-in-out;
+}
